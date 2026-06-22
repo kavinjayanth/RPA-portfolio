@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kavin Jayanth S· Automation Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --v:#6C47FF;--v2:#8B5CF6;--v3:#EDE9FF;
+  --t:#00C9A7;--t2:#E0FBF5;
+  --c:#FF6B6B;--c2:#FFF0F0;
+  --a:#FFBE0B;
+  --dark:#0E0C1A;--text:#1E1B2E;--muted:#6E6A85;
+  --bg:#F8F7FF;--card:#FFFFFF;--border:rgba(108,71,255,0.13);
+  --r:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:58px}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;color:var(--v);letter-spacing:-1px}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--v)}
+.nav-cta{background:var(--v);color:#fff;padding:7px 18px;border-radius:100px;font-size:13px;font-weight:600;text-decoration:none;font-family:'Space Grotesk',sans-serif;transition:opacity .2s}
+.nav-cta:hover{opacity:.85}
+
+/* ── HERO ── */
+#hero{
+  min-height:92vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:0;
+  max-width:1080px;margin:0 auto;padding:4rem 2rem;
+  position:relative;
+}
+/* floating blobs */
+#hero::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(108,71,255,.18),transparent 70%);top:-60px;right:-80px;pointer-events:none;z-index:0}
+#hero::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(0,201,167,.15),transparent 70%);bottom:40px;left:-40px;pointer-events:none;z-index:0}
+
+.hero-left{position:relative;z-index:1}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--v3);color:var(--v);font-size:13px;font-weight:600;padding:5px 14px;border-radius:100px;margin-bottom:1.5rem;letter-spacing:.3px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--t);display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+.hero-name{font-size:clamp(2.6rem,5vw,4rem);font-weight:700;line-height:1.05;letter-spacing:-2px;color:var(--dark);margin-bottom:.4rem}
+.hero-name .line2{color:var(--v)}
+.hero-role{font-size:1.05rem;color:var(--muted);margin:.8rem 0 1.8rem;max-width:440px;line-height:1.6}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:12px 26px;border-radius:100px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s;border:none}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--v);color:#fff;box-shadow:0 4px 24px rgba(108,71,255,.35)}
+.btn-primary:hover{box-shadow:0 8px 32px rgba(108,71,255,.45)}
+.btn-ghost{background:transparent;color:var(--v);border:2px solid var(--v)}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:5px 13px;font-size:12.5px;color:var(--muted);font-weight:500}
+
+/* PHOTO COLUMN */
+.hero-right{position:relative;z-index:1;display:flex;justify-content:center;align-items:center}
+.photo-wrap{position:relative;width:340px;height:420px}
+/* big color block behind photo */
+.photo-bg{position:absolute;inset:20px 0 0 20px;background:linear-gradient(135deg,var(--v),var(--v2));border-radius:24px;z-index:0}
+/* floating accent chips */
+.float-chip{position:absolute;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:8px 14px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:6px;z-index:10;box-shadow:0 4px 16px rgba(0,0,0,.08);white-space:nowrap}
+.chip-top{top:10px;right:-30px}
+.chip-bot{bottom:30px;left:-30px}
+.chip-dot{width:8px;height:8px;border-radius:50%}
+.photo-frame{position:relative;z-index:2;width:300px;height:380px;border-radius:20px;overflow:hidden;margin-top:20px}
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+/* ── SECTIONS ── */
+section{padding:5rem 2rem;max-width:880px;margin:0 auto}
+.section-label{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--v);margin-bottom:.5rem}
+.section-title{font-size:clamp(1.7rem,3vw,2.2rem);font-weight:700;color:var(--dark);letter-spacing:-.5px;margin-bottom:2.5rem}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.about-text p{color:var(--muted);margin-bottom:1rem;line-height:1.75}
+.about-stats{display:flex;flex-direction:column;gap:14px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.1rem 1.4rem;transition:border-color .2s}
+.stat-card:hover{border-color:rgba(108,71,255,.3)}
+.stat-value{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;font-weight:700;color:var(--v)}
+.stat-label{font-size:13px;color:var(--muted)}
+
+/* SKILLS */
+#skills-wrap{background:linear-gradient(135deg,#F0EEFF 0%,#E4FBF6 100%);border-radius:28px;padding:3.5rem 2.5rem;max-width:880px;margin:0 auto 2rem}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
+.skill-group{background:var(--card);border-radius:var(--r);padding:1.2rem 1.4rem;border:1px solid rgba(0,0,0,.06)}
+.sg-title{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13.5px;color:var(--dark);margin-bottom:12px}
+.sg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.sk{font-size:11.5px;padding:3px 10px;border-radius:6px;font-weight:500}
+.sk-v{background:var(--v3);color:var(--v)}
+.sk-t{background:var(--t2);color:#007A67}
+.sk-c{background:var(--c2);color:#C94040}
+.sk-a{background:#FFF9E0;color:#8C6500}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.pcard:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(108,71,255,.14)}
+.pcard-bar{height:5px}
+.bar-v{background:linear-gradient(90deg,var(--v),var(--v2))}
+.bar-t{background:linear-gradient(90deg,var(--t),#38BDF8)}
+.bar-c{background:linear-gradient(90deg,var(--c),var(--a))}
+.bar-d{background:linear-gradient(90deg,#2d1b69,var(--v))}
+.pcard-body{padding:1.25rem 1.5rem}
+.pbadge{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:100px;margin-bottom:10px;display:inline-block}
+.pb-v{background:var(--v3);color:var(--v)}
+.pb-t{background:var(--t2);color:#007A67}
+.pb-c{background:var(--c2);color:#C94040}
+.pb-d{background:#EDE9FF;color:#4C1D95}
+.pname{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;color:var(--dark);margin-bottom:6px}
+.pdesc{font-size:13.5px;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.ptech{display:flex;flex-wrap:wrap;gap:6px}
+.pt{font-size:11px;padding:3px 10px;border-radius:6px;background:#F0EEFF;color:var(--v);font-weight:500}
+
+/* EXPERIENCE */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--v),var(--t));border-radius:2px}
+.titem{position:relative;margin-bottom:2.5rem}
+.tdot{position:absolute;left:-2rem;top:6px;width:16px;height:16px;border-radius:50%;border:3px solid var(--v);background:var(--bg)}
+.tdate{font-size:11.5px;font-weight:700;color:var(--v);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.trole{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:600;color:var(--dark)}
+.tco{font-size:14px;color:var(--muted);margin-bottom:10px}
+.tdesc{font-size:14px;color:var(--muted)}
+.tdesc li{margin-bottom:5px}
+
+/* CONTACT */
+#contact{text-align:center}
+.ccard{background:linear-gradient(135deg,var(--v) 0%,var(--v2) 50%,var(--t) 100%);border-radius:28px;padding:4rem 2rem;color:#fff;position:relative;overflow:hidden}
+.ccard::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.06);top:-80px;left:-80px}
+.ccard::after{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06);bottom:-60px;right:-60px}
+.ccard h2{font-size:2.1rem;font-weight:700;margin-bottom:.75rem;color:#fff;position:relative;z-index:1}
+.ccard p{opacity:.88;margin-bottom:2rem;font-size:1rem;position:relative;z-index:1;max-width:460px;margin-left:auto;margin-right:auto}
+.clinks{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.cbtn{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:rgba(255,255,255,.15);color:#fff;text-decoration:none;border-radius:100px;font-size:14px;font-weight:500;border:1.5px solid rgba(255,255,255,.3);transition:background .2s;font-family:'Space Grotesk',sans-serif}
+.cbtn:hover{background:rgba(255,255,255,.28)}
+
+footer{text-align:center;padding:2rem;font-size:13px;color:var(--muted);border-top:1px solid var(--border)}
+
+@media(max-width:700px){
+  #hero{grid-template-columns:1fr;min-height:auto;padding-top:3rem}
+  .hero-right{margin-top:2.5rem}
+  .photo-wrap{width:260px;height:320px}
+  .photo-frame{width:230px;height:290px}
+  .chip-top{right:-10px}.chip-bot{left:-10px}
+  .about-grid,.projects-grid{grid-template-columns:1fr}
+  nav{padding:0 1rem}
+  .nav-links{gap:1rem}
+  .nav-cta{display:none}
+  section{padding:3.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">K.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills-wrap">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Hire me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero" style="max-width:1080px;">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><span class="pulse"></span> Open to opportunities</div>
+    <h1 class="hero-name">
+      Hi, I'm Kavin.<br/>
+      <span class="line2">I automate<br/>the boring stuff.</span>
+    </h1>
+    <p class="hero-role">Jr. Developer at Cognizant — building RPA bots, Python automation, and healthcare integrations that actually save time.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">See my work →</a>
+      <a href="#contact" class="btn btn-ghost">Let's talk</a>
+    </div>
+    <div class="hero-tags">
+      <span class="tag">📍 Chennai, India</span>
+      <span class="tag">🤖 RPA</span>
+      <span class="tag">🐍 Python</span>
+      <span class="tag">🏥 .Net</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="photo-wrap">
+      <div class="photo-bg"></div>
+      <div class="float-chip chip-top"><span class="chip-dot" style="background:var(--t)"></span>RPA Developer</div>
+      <div class="float-chip chip-bot"><span class="chip-dot" style="background:var(--v)"></span>Open to Work 🚀</div>
+      <div class="photo-frame">
+        <img src="D:\Portfolio\Profile.jpg" alt="Kavin" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Who I am</div>
+  <h2 class="section-title">Builder, automator, problem solver.</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm Kavin, a Jr. Developer at Cognizant Technology Solutions specializing in RPA and intelligent automation. I build bots and workflows that eliminate repetitive manual effort — saving hours, reducing errors, and letting people focus on what actually matters.</p>
+      <p>My work spans healthcare automation — claims processing, HL7/FHIR standards — and I'm actively expanding into core SDE roles, working with Python, Selenium, and REST APIs.</p>
+      <p>I believe the best automation is the kind nobody notices — it just works.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card"><div class="stat-value">2+</div><div class="stat-label">Years in RPA & Automation</div></div>
+      <div class="stat-card"><div class="stat-value">10+</div><div class="stat-label">Workflows automated</div></div>
+      <div class="stat-card"><div class="stat-value">HL7/FHIR</div><div class="stat-label">Healthcare data standards</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div id="skills-wrap">
+  <div class="section-label">What I work with</div>
+  <h2 class="section-title">Skills & tools.</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="sg-title"><span class="sg-dot" style="background:var(--v)"></span>RPA & Automation</div>
+      <div class="skill-tags">
+        <span class="sk sk-v">UiPath</span><span class="sk sk-v">Orchestrator</span>
+        <span class="sk sk-v">REFramework</span><span class="sk sk-v">Attended Bots</span>
+        <span class="sk sk-v">Unattended Bots</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title"><span class="sg-dot" style="background:var(--t)"></span>Programming</div>
+      <div class="skill-tags">
+        <span class="sk sk-t">Python</span><span class="sk sk-t">VB.NET</span>
+        <span class="sk sk-t">Selenium</span><span class="sk sk-t">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title"><span class="sg-dot" style="background:var(--c)"></span>Healthcare</div>
+      <div class="skill-tags">
+        <span class="sk sk-c">HL7</span><span class="sk sk-c">FHIR</span>
+        <span class="sk sk-c">Claims Processing</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="sg-title"><span class="sg-dot" style="background:var(--a)"></span>Tools & More</div>
+      <div class="skill-tags">
+        <span class="sk sk-a">Git</span><span class="sk sk-a">REST APIs</span>
+        <span class="sk sk-a">Linux</span><span class="sk sk-a">DSA Prep</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">What I've built</div>
+  <h2 class="section-title">Projects.</h2>
+  <div class="projects-grid">
+    <div class="pcard"><div class="pcard-bar bar-v"></div>
+      <div class="pcard-body"><span class="pbadge pb-v">RPA</span>
+        <div class="pname">Healthcare Claims Bot</div>
+        <p class="pdesc">Automated end-to-end claims processing, reducing manual effort by ~70% using UiPath REFramework and HL7 data parsing.</p>
+        <div class="ptech"><span class="pt">UiPath</span><span class="pt">VB.NET</span><span class="pt">HL7</span></div>
+      </div>
+    </div>
+    <div class="pcard"><div class="pcard-bar bar-t"></div>
+      <div class="pcard-body"><span class="pbadge pb-t">Python</span>
+        <div class="pname">Selenium Login Automation</div>
+        <p class="pdesc">Python-based Selenium framework for automated web login workflows with robust dynamic element handling and session management.</p>
+        <div class="ptech"><span class="pt">Python</span><span class="pt">Selenium</span><span class="pt">WebDriver</span></div>
+      </div>
+    </div>
+    <div class="pcard"><div class="pcard-bar bar-c"></div>
+      <div class="pcard-body"><span class="pbadge pb-c">Integration</span>
+        <div class="pname">FHIR Data Pipeline</div>
+        <p class="pdesc">Automation workflow transforming and routing FHIR-compliant patient data between systems, with validation and error queuing.</p>
+        <div class="ptech"><span class="pt">FHIR</span><span class="pt">UiPath</span><span class="pt">REST API</span></div>
+      </div>
+    </div>
+    <div class="pcard"><div class="pcard-bar bar-d"></div>
+      <div class="pcard-body"><span class="pbadge pb-d">Utility</span>
+        <div class="pname">ATS Resume Optimizer</div>
+        <p class="pdesc">Python script that analyzes job descriptions and scores resume keyword density for ATS compatibility and pass rate.</p>
+        <div class="ptech"><span class="pt">Python</span><span class="pt">NLP</span><span class="pt">Regex</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Where I've worked</div>
+  <h2 class="section-title">Experience.</h2>
+  <div class="timeline">
+    <div class="titem">
+      <div class="tdot"></div>
+      <div class="tdate">2023 – Present</div>
+      <div class="trole">Jr. Developer — RPA & Automation</div>
+      <div class="tco">Cognizant Technology Solutions · Chennai, India</div>
+      <ul class="tdesc">
+        <li>Build and deploy attended/unattended UiPath bots for enterprise healthcare clients.</li>
+        <li>Implement claims processing automation with HL7/FHIR data integration.</li>
+        <li>Develop Python + Selenium scripts for web automation testing and workflow validation.</li>
+        <li>Collaborate on process design documentation and ATS-optimized project reporting.</li>
+      </ul>
+    </div>
+    <div class="titem">
+      <div class="tdot" style="border-color:var(--t)"></div>
+      <div class="tdate">Earlier</div>
+      <div class="trole">Engineering Graduate</div>
+      <div class="tco">Chennai, India</div>
+      <ul class="tdesc">
+        <li>Built foundational skills in programming, VB.NET, and automation tooling.</li>
+        <li>Explored RPA concepts and began applying them to real-world workflows.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="ccard">
+    <h2>Let's build something together.</h2>
+    <p>Open to automation-focused roles, SDE positions, and freelance automation projects. Drop me a message anytime.</p>
+    <div class="clinks">
+      <a href="mailto:kavinjayanth.d@email.com" class="cbtn">✉ Email me</a>
+      <a href="https://www.linkedin.com/in/kavin-jayanth-s-849067370/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bsxt3SNBySg2MRVl8GG0%2Bfw%3D%3D" class="cbtn">LinkedIn ↗</a>
+      <a href="https://github.com/kavinjayanth" class="cbtn">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>Built by Kavin · Chennai, India · 2025</footer>
+
+</body>
+</html>
